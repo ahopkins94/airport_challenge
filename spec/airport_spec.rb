@@ -31,16 +31,16 @@ describe Airport do
     expect(subject.planes).to eq []
   end
 
-  it "should not receive a plane if the airport is full" do
-    plane = double("plane", :stormy? => false)
-    20.times {subject.receive_planes(plane)}
-    plane2 = double("plane", :stormy? => false)
-    subject.receive_planes(plane)
-    expect(subject.planes.length).to eq 20
-  end
-
   it "should have a default capacity of DEFAULT_CAPACITY" do
     expect(subject.capacity).to eq Airport::DEFAULT_CAPACITY
+  end
+
+  it "should not receive a plane if the airport is at default capacity" do
+    plane = double("plane", :stormy? => false)
+    Airport::DEFAULT_CAPACITY.times {subject.receive_planes(plane)}
+    plane2 = double("plane", :stormy? => false)
+    subject.receive_planes(plane)
+    expect(subject.planes.length).to eq Airport::DEFAULT_CAPACITY
   end
 
 end
