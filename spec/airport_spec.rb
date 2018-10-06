@@ -39,4 +39,8 @@ describe Airport do
     expect(subject.planes.length).to eq 20
   end
 
+  it "should have a default capacity of DEFAULT_CAPACITY" do
+    expect(subject.capacity).to eq Airport::DEFAULT_CAPACITY
+  end
+
 end

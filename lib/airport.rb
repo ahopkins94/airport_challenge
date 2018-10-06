@@ -3,13 +3,16 @@ require_relative "plane"
 class Airport
 
   attr_reader :planes
+  attr_reader :capacity
+  DEFAULT_CAPACITY = 20
 
-  def initialize
+  def initialize(capacity = DEFAULT_CAPACITY)
     @planes = []
+    @capacity = capacity
   end
 
   def receive_planes(plane)
-    if @planes.count < 20
+    if @planes.count < @capacity
       return @planes << plane unless plane.stormy?
     end
   end
