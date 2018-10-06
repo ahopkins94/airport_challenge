@@ -9,7 +9,7 @@ class Airport
   end
 
   def receive_planes(plane)
-    @planes << plane
+    return @planes << plane unless plane.stormy?
   end
 
   def release_planes(plane)
