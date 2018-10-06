@@ -12,4 +12,8 @@ class Plane
     @weather = :stormy
   end
 
+  def sunny_weather
+    @weather = :sunny
+  end
+
 end
