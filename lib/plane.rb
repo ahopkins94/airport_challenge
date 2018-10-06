@@ -8,4 +8,8 @@ class Plane
     @weather == :stormy
   end
 
+  def stormy_weather
+    @weather = :stormy
+  end
+
 end

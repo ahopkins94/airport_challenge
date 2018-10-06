@@ -16,6 +16,15 @@ describe Airport do
     expect(subject.planes).to eq []
   end
 
+
+  it "should be able to not release a plane when the weather is stormy" do
+    plane = double("plane", :stormy? => false)
+    subject.receive_planes(plane)
+    expect(plane).to receive(:stormy_weather)
+    subject.change_weather_to_stormy
+  end
+
+
   it "should not receive a plane when the weather is stormy" do
     plane = double("plane", :stormy? => true)
     subject.receive_planes(plane)

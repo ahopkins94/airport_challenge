@@ -13,7 +13,11 @@ class Airport
   end
 
   def release_planes(plane)
-    @planes.delete(plane)
+    return @planes.delete(plane) unless plane.stormy?
+  end
+
+  def change_weather_to_stormy
+    @planes.each(&:stormy_weather)
   end
 
 end
