@@ -12,4 +12,8 @@ class Airport
     @planes << plane
   end
 
+  def release_planes(plane)
+    @planes.delete(plane)
+  end
+
 end
