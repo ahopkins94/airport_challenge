@@ -3,10 +3,9 @@ require 'plane'
 
 describe Airport do
 
-  it "should receive landing plans" do
-    airport = Airport.new
+  it "should receive landing planes" do
     plane = Plane.new
-    expect(airport.receive_plane(plane)).to eq plane
+    expect(subject.receive_planes(plane)).to eq [plane]
   end
 
 end
